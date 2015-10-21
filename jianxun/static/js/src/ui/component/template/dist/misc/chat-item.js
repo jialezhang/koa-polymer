@@ -1,3 +1,0 @@
-export const chatItem= '<section class="position-section chat-item"><div class="user-avatar pic-container"><img src="${emitter_avatar}"></div><div class="position-section-content"><div class="info-top"><label class="user-name">${emitter_name}</label><time>${emitter_time}</time></div><div class="info-bottom chat-item"><textarea class="jx-textarea jx" readonly="readonly">
-${chat_content}
-      </textarea></div></div></section>';

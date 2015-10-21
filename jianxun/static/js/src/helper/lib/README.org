@@ -1,4 +1,0 @@
-* 使用
-** 每次修改 template 源文件的时候，需要执行一次脚本文件 
-** node renderTemplates.js
-** 然后到 dist/ 目录下面根据需要对每个文件进行修改
