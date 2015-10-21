@@ -10,5 +10,8 @@ npm-debug.log
 # all node_modules
 node_modules/
 
+#bower install packages
+
+jianxun/static/js/src/vendor
 
 !.gitignore
