@@ -1,0 +1,46 @@
+<div class="card member-login" >
+  <div class="card-header medium">
+    <div class="card-text-content card-content">
+      <p class="card-title">登录</p>
+    </div>
+  </div>
+  <div class="card-field-content">
+    <form id="login-form" action="javascript:;" method="post">
+      <div class="login-type">
+        <div class="login-type-item active " data-userType ="c">
+          <span>程序员</span>
+          <i class="indicator login"></i>
+        </div>
+        <div class="login-type-item" data-userType ="b">
+          <span>企业用户</span>
+          <i class="indicator login"></i>
+        </div>
+      </div>
+      <div class="input-field-content">
+        <div class="input-field row">
+          <input id="email" type="email" name="email"
+                 data-rules="required|valid_email" data-display="邮箱"
+                 class="validate" />
+          <label for="email">登录邮箱</label>
+          <span class="help-block"></span>
+        </div>
+
+        <div class="input-field row ">
+          <input id="password" type="password" name="password"
+                 data-rules="required|valid_password" data-display="密码"
+                 class="validate" />
+          <label for="password">密码</label>
+          <span class="help-block"></span>
+        </div>
+        <div class="remember_me">
+          <input type="checkbox" class="filled-in" id="remember_me" name="remember_me"  value="" />
+          <label for="remember_me">两周内记住我</label>
+        </div>
+        <div class="btn-container card-action">
+          <a class="btn-ghost" href="/account/forgotpwd">忘记密码</a>
+          <a id="user-login" class="right btn" >登录</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

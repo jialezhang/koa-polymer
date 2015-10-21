@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{sitename}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{#each styles_url}}
+      <link href="{{this}}" rel="stylesheet" type="text/css">
+      {{else}}
+    {{/each}}
+    {{#each scripts_url}}
+      <script type="text/javascript" src="{{this}}"></script>
+      {{else}}
+    {{/each}}
+    <!-- Latest compiled and minified CSS -->
+  </head>
+  <body>
+    <div class="website-container">
+      {{> componentNavbar }} 
+      {{{@body}}}
+      {{> componentFooter }}
+    </div>
+    {{> componentNotify }}
+  </body>
+</html>

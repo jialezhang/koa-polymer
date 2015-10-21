@@ -1,0 +1,73 @@
+import webUploader from 'Vendors/webuploader.html5only';
+import { Bind } from 'Utils/utils';
+
+export function ResumeUpload () {
+
+  let  resumeXsrf = $('#resume-picker input[name="_xsrf"]').val();
+  let  resumeUploader = {
+    auto: true,
+    server: '/people/settings/resume',
+    picker: '#resume-picker',
+    dnd: '#main-container',
+    formData: {
+      _xsrf: resumeXsrf
+    },
+    fileVal: 'resume',
+    pick: {
+      id : '#resume-picker',
+      multiple : false
+    },
+    progress: 'width'
+  };
+  /* bind:将目标函数的this对象替换 */
+  let uploader = webUploader.create(resumeUploader);
+
+  function uploadProgress(file, percentage, target){
+    console.log(file);
+    let $progress = $(target.picker).parent().find('.progress-bar'),
+        progressBar = target.progress,
+        $progressActions = $(target.picker).parent().find('.uploader-message');
+
+    $progressActions.css({'color': '#FFF'});
+    $progressActions.html('上传中,上传进度为' + percentage);
+
+    $progress.css({'background': '#20C05C',
+                   progressBar :  percentage * 100 + '%'
+                  });
+  }
+  function uploadSuccess(file, response, target){
+    let $progressActions = $(target.picker).parent().find('.uploader-message'),
+        $progress = $(target.picker).parent().find('.progress-bar');
+    if(target.fileVal === 'resume'){
+      if(response.status){
+        $progressActions.html('上传成功');
+        let remindContainer  = $('.side-info-item.resume').find('.resume-remind');
+        if(!remindContainer.hasClass('active')) {
+          remindContainer.html('已上传简历');
+        }
+      } else {
+        // 显示错误
+        $progress.css({'background': 'red'});
+        $progressActions.html(response.errors.resume);
+      }
+    }
+  }
+  function uploadError(file, target){
+    $(target.picker + ' .resume-actions').html('上传格式错误');
+  };
+
+  // 文件正在上传的时候
+  uploader.on('uploadProgress', function(file, percentage){
+    uploadProgress(file, percentage);
+  });
+  // 文件上传成功
+  uploader.on('uploadSuccess', function(file, response){
+    uploadSuccess(file, response);
+  });
+  // 文件上传出错
+  uploader.on('uploadError', function(file, response){
+    uploadError(file, response);
+  });
+  return uploader;
+};
+/* TODO avatarUploader */

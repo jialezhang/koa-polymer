@@ -1,0 +1,99 @@
+<div class="panel-content exist" data-target="workexp" data-workexp-id="${data_id}">
+  <div class="panel-edit-container">
+    <div class="panel-content workexp-item">
+      <div class="row">
+        <div class="input-field col s12">
+          <input class="workexp-name validate" type="text" data-rules="" data-display="公司名称" name="workexp-name" value="">
+          <label for="workexp-name">公司名称：</label>
+          <span class="help-block"></span>
+        </div>
+      </div>
+      <div class="row time-container">
+        <div class="input-field col s2">
+          <input class="time-year start-time validate" type="text" data-rules="integer" data-display="年" name="time-year;" placeholder="年" value="">
+          <label for="time-year" class="active">开始时间:</label>
+          <span class="help-block"></span>
+        </div>
+        <div class="input-field col s2">
+          <select class="time-month start-time">
+          </select>
+        </div>
+        <div class="end-time-container">
+          <div class="input-field col s2">
+            <input class="time-year end-time validate" type="text" data-rules="integer" data-display="年" name="time-year" placeholder="年" value="">
+            <label for="time-year" class="active">结束时间:</label>
+            <span class="help-block"></span>
+          </div>
+          <div class="input-field col s2">
+            <select class="time-month end-time">
+            </select>
+              <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="time-till-now col s2">
+          <input type="checkbox" class="time-till-now-workexp" name="time-till-now" value="">
+          <label for="time-till-now" style="color: rgba(0,0,0,0.87)">至今</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input class="position-name validate" type="text" data-rules="required" data-display="职位头衔" name="position-name">
+          <label for="position-name">职位头衔：</label>
+          <span class="help-block"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea class="jx position-description validate" type="text" data-rules="required" data-display="详细描述" name="position-description" style="height: 72px;"></textarea>
+          <label for="position-description">详细描述：</label>
+          <span class="help-block"></span>
+        </div>
+      </div>
+      <div class="panel-action" data-type="edit" data-target="workexp">
+        <div class="btn-flat cancel">
+          取消
+        </div>
+        <input type="button" class="btn confirm J_Ajax_emitter"  data-loading="提交中...." data-restext="确认" value="确认">
+        <a class="delete">删除此条记录</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="panel-show-container">
+    <span class="edit-trigger " data-target="workexp">修改</span>
+    <div class="row panel-info-item ">
+      <label class="info-title" for="company-name">公司名称：</label>
+      <span class="workexp-name info-content"> ${company_name} </span>
+
+    </div>
+    <div class="row panel-info-item">
+      <label class="info-title" for="start-work">在职时间：</label>
+      <p class="time-concat info-content">
+
+        <span class="time-year start-time"> ${start_time_year} </span>
+        <i>.</i>
+        <span class="time-month start-time"> ${start_time_month} </span>
+
+        <i>-</i>
+
+      </p><p class="end-time-container">
+        <span class="time-year end-time"> ${end_time_year} </span>
+        <i>.</i>
+        <span class="time-month end-time"> ${end_time_month} </span>
+      </p>
+      <span class="project time-till-now-workexp mute"></span>
+
+      <p></p>
+    </div>
+    <div class="row panel-info-item ">
+      <label class="info-title" for="position-name">职位头衔：</label>
+      <span class="info-content position-name"> ${position_name} </span>
+    </div>
+    <div class="row panel-info-item">
+      <label class="info-title active" for="position-description">职位描述：</label>
+
+      <textarea class="jx info-content position-description" readonly>${position_desc}</textarea>
+
+    </div>
+  </div>
+</div>

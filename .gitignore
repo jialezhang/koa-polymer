@@ -1,0 +1,14 @@
+# temporary file
+.*
+*~
+\#*
+
+npm-debug.log
+
+# repos buildout
+
+# all node_modules
+node_modules/
+
+
+!.gitignore
